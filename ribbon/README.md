@@ -20,11 +20,11 @@ Ribbon的使用通常要配合`restTemplate`
 ## 自己实现规则
 ### 实现轮询规则
 原理：
-根据service获得service instance列表 `instances`
-instance列表长度为 `total`
-记录请求次数 `count`
-`count % total`作为`index`，
-`instances.get(index)`就是这一次请求所请求的服务实例
+根据service获得service instance列表 `instances`\
+instance列表长度为 `total`\
+记录请求次数 `count`\
+`count % total`作为`index`，\
+`instances.get(index)`就是这一次请求所请求的服务实例\
 代码：
 ```java
 package com.example.consulconsumer9021.lb;

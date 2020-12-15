@@ -9,7 +9,7 @@
 ## 路由       Route
 这是一个网关的基本模块，包含有ID，URI，断言和过滤器组成，如果断言为true，则匹配该路由
 ## 断言       Predicate
-参考java.util.function.Predicate
+参考java.util.function.Predicate\
 匹配HTTP请求中的内容，如果和Predicate相匹配，则匹配到该路由
 ## 过滤器     Filter
 Spring 框架中的 GatewayFilter的实例，可以在路由前或路由后对数据进行修改
@@ -61,30 +61,32 @@ public class GatewayGateway9527Application {
 > 意味着这个路径下的所有请求决斗将转发到`https://news.baidu.com/` 下。
 
 # 动态路由
-我们的service注册在注册中心，我们使用的大部分注册中心是适配于DiscoveryClient的
+我们的service注册在注册中心，我们使用的大部分注册中心是适配于DiscoveryClient的\
 比如 eureka, consul, zookeeper
 
 首先我们要先启用这个功能：`spring.cloud.gateway.discovery.locator.enabled=true`
-默认会给通过`DiscoveryClient`创建的路由去创建一个predicate和一个filter
-默认的predicate是`/serviceId/**`
-默认的filter的正则表达式是`/serviceId/(?<remaining>.*)`，正则中的可替换区是`/${remaining}`
+- 默认会给通过`DiscoveryClient`创建的路由去创建一个predicate和一个filter
+- 默认的predicate是`/serviceId/**`
+- 默认的filter的正则表达式是`/serviceId/(?<remaining>.*)`，正则中的可替换区是`/${remaining}`\
+
 这样子我们就可以通过 `HttpPathOfGateway/serviceId/**`去访问我们的service了
 
-也可以不使用这个功能，直接将`predicates.path`设置为`http://serviceId`也是可以的
+也可以不使用这个功能，直接将`predicates.path`设置为`http://serviceId`也是可以的，
 这样子我们的输入路径就是`predicates.path/**`
 
 # 路由配置
 ## predicates
 就是一堆匹配规则。
+
 可以指定什么条件才能匹配到这个路由
 
 ## filters
-有gatewayFilter
-有globalFilter
-有before
-有after
-官网上都有
-我们说一下自定义
+有gatewayFilter\
+有globalFilter\
+有before\
+有after\
+官网上都有\
+我们说一下自定义\
 比如说我们需要自定义一个globalFilter：
 ```java
 @Component

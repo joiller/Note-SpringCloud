@@ -1,6 +1,5 @@
-@[toc](Config)
 # 什么是config
-在分布式中，我们有许多的配置文件，不好修改。
+在分布式中，我们有许多的配置文件，不好修改。\
 spring cloud 提供了统一修改 配置文件的方案 Config
 
 # 原理
@@ -10,7 +9,7 @@ git仓库。
 
 # 实现方法
 ## git仓库
-所以我们要先有个git仓库交给`config-server`去引用
+所以我们要先有个git仓库交给`config-server`去引用\
 这个git里面需要有`config-dev.yml`,`config-prod.yml`,`config-test.yml`
 等文件就行
 
@@ -51,7 +50,7 @@ spring:
 首先添加依赖config-client
 
 ### bootstrap.yml
-`application.yml`是用户级的资源配置
+`application.yml`是用户级的资源配置\
 `bootstrap.yml`是系统级的资源配置，优先级更高，优先加载他
 
 springcloud会创建一个`bootstrap context`，作为`application context`的
@@ -103,7 +102,7 @@ management:
 接下来就可以通过对`ClientHost:Port/actuator/refresh`发送post请求，来实现更新了
 
 # bug
-主要是git连接问题：
+主要是git连接问题：\
 config用的是`JGit`来连接git。
 ## invalid private key
 在用SSH的方式连接git的时候，需要`private key`

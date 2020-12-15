@@ -3,7 +3,7 @@
 有注册中心，有client
 
 # 开启注册中心
-与eureka不同的是，consul的注册中心不需要在java项目中启动。
+与eureka不同的是，consul的注册中心不需要在java项目中启动。\
 可以直接在命令行中启动
 `consul agent -dev`
 
