@@ -1,0 +1,2 @@
+
+和eureka和consul的理念都差不多，用法参考consul就行了
